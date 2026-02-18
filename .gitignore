@@ -5,3 +5,7 @@ release/
 .env
 .DS_Store
 Thumbs.db
+
+# Native addon build artifacts
+native/pdfium/build/
+native/pdfium/vendor/
