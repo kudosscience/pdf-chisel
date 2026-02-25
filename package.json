@@ -48,6 +48,7 @@
       "dist/**/*",
       "src/renderer/**/*.html",
       "src/renderer/**/*.css",
+      "src/renderer/**/*.png",
       "native/pdfium/build/Release/*"
     ],
     "asarUnpack": [

@@ -32,6 +32,7 @@ function createWindow(): void {
     minWidth: MIN_WINDOW_WIDTH,
     minHeight: MIN_WINDOW_HEIGHT,
     title: 'PDF Chisel',
+    icon: path.join(__dirname, '..', '..', 'assets', 'icon.png'),
     webPreferences: {
       // ── Security: disable direct Node access in renderer ──
       nodeIntegration: false,
