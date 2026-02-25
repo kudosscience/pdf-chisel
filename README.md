@@ -11,10 +11,10 @@ Pick the installer for your operating system:
 
 | Operating System | Download | Notes |
 |:---:|:---:|:---|
-| **Windows** | [**Download for Windows**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Editor.Setup.0.1.0.exe) | Run the `.exe` installer and follow the prompts |
-| **macOS (Apple Silicon)** | [**Download for Mac (M1/M2/M3)**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Editor-0.1.0-arm64.dmg) | Open the `.dmg`, drag PDF Chisel to Applications |
-| **macOS (Intel)** | [**Download for Mac (Intel)**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Editor-0.1.0.dmg) | Open the `.dmg`, drag PDF Chisel to Applications |
-| **Linux** | [**Download for Linux**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Editor-0.1.0.AppImage) | Make executable: `chmod +x *.AppImage`, then run |
+| **Windows** | [**Download for Windows**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel.Setup.0.2.0.exe) | Run the `.exe` installer and follow the prompts |
+| **macOS (Apple Silicon)** | [**Download for Mac (M1/M2/M3)**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel-0.2.0-arm64.dmg) | Open the `.dmg`, drag PDF Chisel to Applications |
+| **macOS (Intel)** | [**Download for Mac (Intel)**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel-0.2.0.dmg) | Open the `.dmg`, drag PDF Chisel to Applications |
+| **Linux** | [**Download for Linux**](https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel-0.2.0.AppImage) | Make executable: `chmod +x *.AppImage`, then run |
 
 > **Not sure which Mac you have?** Click the Apple menu () → **About This Mac**. If the chip says "Apple M1" / "M2" / "M3" etc., choose **Apple Silicon**. Otherwise choose **Intel**.
 
