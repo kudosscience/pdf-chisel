@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Chisel — Free Offline PDF Editor</title>
+  <meta name="description" content="Edit text and replace images in PDFs. 100% offline, open source, cross-platform. Download for Windows, macOS, and Linux." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    /* ── Reset & base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --bg-card: #181b23;
+      --bg-card-hover: #1e2230;
+      --text: #e4e6eb;
+      --text-muted: #9a9daa;
+      --accent: #dc3545;
+      --accent-hover: #c82333;
+      --border: #2a2d3a;
+      --radius: 12px;
+      --max-w: 960px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: linear-gradient(180deg, #14161e 0%, var(--bg) 100%);
+    }
+
+    .hero img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 4px 24px rgba(220, 53, 69, 0.25));
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero .tagline {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--bg-card);
+    }
+
+    /* ── Download buttons ─────────────────────────────── */
+    .downloads {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.1s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--bg-card-hover); }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── Section layout ───────────────────────────────── */
+    section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    section .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    /* ── Features grid ────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: #3a3d4a;
+    }
+
+    .feature-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ── All platforms section ─────────────────────────── */
+    .platform-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    .platform-table th,
+    .platform-table td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .platform-table th {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .platform-table td a {
+      font-weight: 600;
+    }
+
+    .platform-table td:last-child {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── Mac tip ──────────────────────────────────────── */
+    .mac-tip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .mac-tip strong { color: var(--text); }
+
+    /* ── Footer ───────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--text); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .tagline { font-size: 1rem; }
+      .downloads { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Hero ──────────────────────────────────────── -->
+  <div class="hero">
+    <img src="logo.png" alt="PDF Chisel" />
+    <h1>PDF Chisel</h1>
+    <p class="tagline">
+      Edit text and replace images directly in your PDFs.
+      100% offline, open source, and free.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">100% Offline</span>
+      <span class="badge">Open Source</span>
+      <span class="badge">Windows / macOS / Linux</span>
+    </div>
+    <div class="downloads" id="download">
+      <a class="btn btn-primary" href="https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel.Setup.0.2.0.exe">
+        <svg viewBox="0 0 24 24"><path d="M3 17h4v-6H3v6zM0 9h24v2H0V9zm21 8h-4v-6h4v6zM10 17h4V6h-4v11z"/></svg>
+        Download for Windows
+      </a>
+      <a class="btn btn-secondary" href="#all-downloads">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        All Platforms
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Features ──────────────────────────────────── -->
+  <section>
+    <h2>Features</h2>
+    <p class="subtitle">Everything you need to edit PDFs, nothing you don't.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#9998;</div>
+        <h3>Edit Text In Place</h3>
+        <p>Double-click any text on the PDF and type your changes. What you see is what you get.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128247;</div>
+        <h3>Replace Images</h3>
+        <p>Swap embedded images with your own PNG or JPEG files. Click the image and choose a replacement.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#8634;</div>
+        <h3>Undo &amp; Redo</h3>
+        <p>Full edit history. Ctrl+Z to undo, Ctrl+Shift+Z to redo. Never worry about mistakes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128196;</div>
+        <h3>Multi-Page</h3>
+        <p>Navigate, zoom, and edit any page. Thumbnail sidebar for quick page previews.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>100% Offline</h3>
+        <p>Your files never leave your computer. No cloud, no accounts, no subscriptions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128421;</div>
+        <h3>Cross-Platform</h3>
+        <p>Runs natively on Windows, macOS (Intel &amp; Apple Silicon), and Linux.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── All Downloads ─────────────────────────────── -->
+  <section id="all-downloads">
+    <h2>Download</h2>
+    <p class="subtitle">Pick the installer for your operating system.</p>
+    <table class="platform-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Download</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Windows</strong></td>
+          <td><a href="https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel.Setup.0.2.0.exe">PDF.Chisel.Setup.0.2.0.exe</a></td>
+          <td>Run the installer and follow the prompts</td>
+        </tr>
+        <tr>
+          <td><strong>macOS (Apple Silicon)</strong></td>
+          <td><a href="https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel-0.2.0-arm64.dmg">PDF.Chisel-0.2.0-arm64.dmg</a></td>
+          <td>Open the .dmg, drag to Applications</td>
+        </tr>
+        <tr>
+          <td><strong>macOS (Intel)</strong></td>
+          <td><a href="https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel-0.2.0.dmg">PDF.Chisel-0.2.0.dmg</a></td>
+          <td>Open the .dmg, drag to Applications</td>
+        </tr>
+        <tr>
+          <td><strong>Linux</strong></td>
+          <td><a href="https://github.com/kudosscience/pdf-chisel/releases/latest/download/PDF.Chisel-0.2.0.AppImage">PDF.Chisel-0.2.0.AppImage</a></td>
+          <td><code>chmod +x *.AppImage</code> then run</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mac-tip">
+      <strong>Not sure which Mac you have?</strong>
+      Click the Apple menu &#63743; &rarr; <strong>About This Mac</strong>.
+      If the chip says "Apple M1" / "M2" / "M3", choose <strong>Apple Silicon</strong>. Otherwise choose <strong>Intel</strong>.
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────── -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/kudosscience/pdf-chisel">GitHub</a>
+      <a href="https://github.com/kudosscience/pdf-chisel/releases">Releases</a>
+      <a href="https://github.com/kudosscience/pdf-chisel/issues">Report a Bug</a>
+    </div>
+    <p>MIT License &middot; PDF Chisel</p>
+  </footer>
+
+</body>
+</html>
