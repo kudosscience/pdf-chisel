@@ -1,7 +1,13 @@
-# PDF Chisel
+<p align="center">
+  <img src="assets/PDF Chisel Logo.png" alt="PDF Chisel" width="128" />
+</p>
 
-Cross-platform desktop PDF editor with WYSIWYG text and image editing.  
-Fully offline — no cloud, no subscriptions, no account required.
+<h1 align="center">PDF Chisel</h1>
+
+<p align="center">
+  Cross-platform desktop PDF editor with WYSIWYG text and image editing.<br/>
+  Fully offline — no cloud, no subscriptions, no account required.
+</p>
 
 ---
 
@@ -52,6 +58,8 @@ npm run dev
 ```
 
 ### Build
+
+```bash
 # Compile TypeScript only
 npm run build
 
@@ -77,21 +85,21 @@ npm run dist
 
 ```
 src/
-├── main/           # Electron main process
-│   ├── index.ts          # App lifecycle, window creation, CSP enforcement
-│   ├── ipc-handlers.ts   # IPC handler registration (typed, validated)
-│   └── pdfium.ts         # PdfiumEngine façade (wraps native addon)
-├── preload/        # Preload bridge (contextBridge → window.api)
+├── main/            # Electron main process
+│   ├── index.ts           # App lifecycle, window creation, CSP enforcement
+│   ├── ipc-handlers.ts    # IPC handler registration (typed, validated)
+│   └── pdfium.ts          # PdfiumEngine façade (wraps native addon)
+├── preload/         # Preload bridge (contextBridge → window.api)
 │   └── index.ts
-├── renderer/       # UI (no Node/Electron access)
-│   ├── index.html        # Document shell with toolbar, canvas viewer
+├── renderer/        # UI (no Node/Electron access)
+│   ├── index.html         # Document shell with toolbar, canvas viewer
 │   ├── styles.css         # Dark theme, canvas, overlays
-│   └── app.ts            # Viewer, zoom/pan, editing, undo/redo
-├── shared/         # Types, constants, IPC schema shared across processes
-│   ├── constants.ts
-│   └── ipc-schema.ts
+│   └── app.ts             # Viewer, zoom/pan, editing, undo/redo
+└── shared/          # Types, constants, IPC schema shared across processes
+    ├── constants.ts
+    └── ipc-schema.ts
 native/
-└── pdfium/         # C++ N-API addon wrapping PDFium (Task 1-2)
+└── pdfium/          # C++ N-API addon wrapping PDFium
     ├── binding.gyp
     └── src/
 ```
