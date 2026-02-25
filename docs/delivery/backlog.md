@@ -1,4 +1,4 @@
-# Product Backlog — PDF Editor
+# Product Backlog — PDF Chisel
 
 | ID | Actor | User Story | Status | Conditions of Satisfaction (CoS) |
 | :-- | :---- | :--------- | :----- | :------------------------------- |

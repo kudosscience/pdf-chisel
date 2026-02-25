@@ -1,5 +1,5 @@
 {
-  "name": "pdf-editor",
+  "name": "pdf-chisel",
   "version": "0.1.0",
   "description": "Cross-platform PDF editor with WYSIWYG editing — Electron + open-source libraries",
   "main": "dist/main/index.js",
@@ -39,8 +39,8 @@
     "node-addon-api": "^8.0.0"
   },
   "build": {
-    "appId": "com.pdfeditor.app",
-    "productName": "PDF Editor",
+    "appId": "com.pdfchisel.app",
+    "productName": "PDF Chisel",
     "directories": {
       "output": "release"
     },
@@ -76,7 +76,7 @@
       ],
       "icon": "assets/icon.ico",
       "signtoolOptions": {
-        "publisherName": "PDF Editor"
+        "publisherName": "PDF Chisel"
       }
     },
     "nsis": {
@@ -85,8 +85,8 @@
       "perMachine": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "PDF Editor",
-      "uninstallDisplayName": "PDF Editor"
+      "shortcutName": "PDF Chisel",
+      "uninstallDisplayName": "PDF Chisel"
     },
     "mac": {
       "target": [

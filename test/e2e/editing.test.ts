@@ -213,7 +213,7 @@ test('Scenario 1 â€” select text, edit via in-place editor, re-renders', as
       __appState?: { pageObjects: unknown[] };
     }).__appState;
     // Fallback: call list-objects via the API
-    const docId = document.title.match(/â€” PDF Editor$/)?.[0]
+    const docId = document.title.match(/â€” PDF Chisel$/)?.[0]
       ? undefined
       : undefined;
     // Read from properties first â€” or query the overlay canvas events

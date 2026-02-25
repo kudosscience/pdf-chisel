@@ -5,8 +5,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MAX_RECENT_FILES = exports.PDF_FILE_FILTERS = exports.CONTENT_SECURITY_POLICY = exports.MIN_WINDOW_HEIGHT = exports.MIN_WINDOW_WIDTH = exports.DEFAULT_WINDOW_HEIGHT = exports.DEFAULT_WINDOW_WIDTH = exports.APP_ID = exports.APP_NAME = void 0;
 /** Application metadata. */
-exports.APP_NAME = 'PDF Editor';
-exports.APP_ID = 'com.pdfeditor.app';
+exports.APP_NAME = 'PDF Chisel';
+exports.APP_ID = 'com.pdfchisel.app';
 /** Default window dimensions. */
 exports.DEFAULT_WINDOW_WIDTH = 1280;
 exports.DEFAULT_WINDOW_HEIGHT = 800;

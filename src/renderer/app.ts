@@ -241,7 +241,7 @@ async function handleOpen(): Promise<void> {
 
   const fileName = result.filePath.split(/[\\/]/).pop() ?? 'Untitled';
   fileNameEl.textContent = fileName;
-  document.title = `${fileName} — PDF Editor`;
+  document.title = `${fileName} — PDF Chisel`;
 
   enableDocumentControls();
 
@@ -291,7 +291,7 @@ async function handleSaveAs(): Promise<void> {
       state.fileData = result.data;
       const fileName = newPath.split(/[\\/]/).pop() ?? 'Untitled';
       fileNameEl.textContent = fileName;
-      document.title = `${fileName} — PDF Editor`;
+      document.title = `${fileName} — PDF Chisel`;
       updateDirtyIndicator();
       setStatus(`Saved as: ${fileName}`);
     } else {
@@ -334,7 +334,7 @@ async function handleDrop(e: DragEvent): Promise<void> {
   }
 
   fileNameEl.textContent = file.name;
-  document.title = `${file.name} — PDF Editor`;
+  document.title = `${file.name} — PDF Chisel`;
 
   enableDocumentControls();
   dropZone.style.display = 'none';
@@ -749,8 +749,8 @@ function updateDirtyIndicator(): void {
   const fileName = fileNameEl.textContent ?? '';
   const titleBase = fileName.replace(/^\*\s*/, '');
   document.title = state.modified
-    ? `* ${titleBase} — PDF Editor`
-    : `${titleBase} — PDF Editor`;
+    ? `* ${titleBase} — PDF Chisel`
+    : `${titleBase} — PDF Chisel`;
 }
 
 // ── Keyboard shortcuts ──────────────────────────────────────────────

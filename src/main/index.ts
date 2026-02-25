@@ -31,7 +31,7 @@ function createWindow(): void {
     height: DEFAULT_WINDOW_HEIGHT,
     minWidth: MIN_WINDOW_WIDTH,
     minHeight: MIN_WINDOW_HEIGHT,
-    title: 'PDF Editor',
+    title: 'PDF Chisel',
     webPreferences: {
       // ── Security: disable direct Node access in renderer ──
       nodeIntegration: false,

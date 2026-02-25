@@ -32,9 +32,9 @@ async function buildMsi() {
     appDirectory: APP_DIR,
     outputDirectory: OUTPUT_DIR,
     description: 'Cross-platform PDF editor with WYSIWYG editing',
-    exe: 'PDF Editor',
-    name: 'PDF Editor',
-    manufacturer: 'PDF Editor Team',
+    exe: 'PDF Chisel',
+    name: 'PDF Chisel',
+    manufacturer: 'PDF Chisel Team',
     version: require('../package.json').version,
     appIconPath: path.join(__dirname, '..', 'assets', 'icon.ico'),
     // Stable product upgrade code — do NOT change between releases

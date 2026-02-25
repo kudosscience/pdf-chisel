@@ -2,8 +2,8 @@
  * Shared constants used across main, preload, and renderer.
  */
 /** Application metadata. */
-export declare const APP_NAME = "PDF Editor";
-export declare const APP_ID = "com.pdfeditor.app";
+export declare const APP_NAME = "PDF Chisel";
+export declare const APP_ID = "com.pdfchisel.app";
 /** Default window dimensions. */
 export declare const DEFAULT_WINDOW_WIDTH = 1280;
 export declare const DEFAULT_WINDOW_HEIGHT = 800;

@@ -3,8 +3,8 @@
  */
 
 /** Application metadata. */
-export const APP_NAME = 'PDF Editor';
-export const APP_ID = 'com.pdfeditor.app';
+export const APP_NAME = 'PDF Chisel';
+export const APP_ID = 'com.pdfchisel.app';
 
 /** Default window dimensions. */
 export const DEFAULT_WINDOW_WIDTH = 1280;
