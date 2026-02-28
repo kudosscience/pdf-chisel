@@ -3,7 +3,7 @@
  * Download prebuilt PDFium shared library from bblanchon/pdfium-binaries.
  * Extracts to native/pdfium/vendor/{include,lib,bin}.
  *
- * Usage: node scripts/download-pdfium.js
+ * Usage: node scripts/download-pdfium.js [--x64|--arm64]
  */
 
 'use strict';
@@ -90,7 +90,17 @@ function download(url, destPath) {
 }
 
 async function main() {
-  const key = `${process.platform}-${process.arch}`;
+  // Parse command-line flags for cross-compilation support
+  const args = process.argv.slice(2);
+  let arch = process.arch; // Default to current system arch
+
+  if (args.includes('--x64')) {
+    arch = 'x64';
+  } else if (args.includes('--arm64')) {
+    arch = 'arm64';
+  }
+
+  const key = `${process.platform}-${arch}`;
   const name = PLATFORM_MAP[key];
 
   if (!name) {

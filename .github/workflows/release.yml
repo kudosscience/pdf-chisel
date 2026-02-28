@@ -22,6 +22,11 @@ jobs:
             artifact: release/*.AppImage
           - os: macos-latest
             platform: mac
+            arch: x64
+            artifact: release/*.dmg
+          - os: macos-14
+            platform: mac
+            arch: arm64
             artifact: release/*.dmg
 
     runs-on: ${{ matrix.os }}
@@ -40,7 +45,7 @@ jobs:
         run: npm ci
 
       - name: Download PDFium binaries
-        run: node scripts/download-pdfium.js
+        run: node scripts/download-pdfium.js ${{ matrix.arch && format('--{0}', matrix.arch) || '' }}
 
       - name: Build native addon
         run: npm run build:native
@@ -49,14 +54,14 @@ jobs:
         run: npm run build
 
       - name: Build installer
-        run: npm run dist:${{ matrix.platform }}
+        run: npm run dist:${{ matrix.platform }} ${{ matrix.platform == 'mac' && format('-- --{0}', matrix.arch) || '' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: installer-${{ matrix.platform }}
+          name: installer-${{ matrix.platform }}${{ matrix.arch && format('-{0}', matrix.arch) || '' }}
           path: |
             release/*.exe
             release/*.dmg
